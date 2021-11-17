@@ -34,7 +34,7 @@ async function run() {
         res.end();
     });
 
-    await app.listen(3000, "0.0.0.0", () => {
+    await app.listen(process.env.PORT, () => {
         console.log('Listening on port 3000');
     }
         );
