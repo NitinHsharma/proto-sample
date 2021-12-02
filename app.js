@@ -33,6 +33,33 @@ async function run() {
         Object.assign(doc, user);
         res.end();
     });
+    
+    app.get('/share', function(req, res) {
+        
+         let html = "<html><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />" +
+        "<meta property=\"og:title\" content=\"Nitin Sharma\">" +
+        "<meta property=\"og:description\" content=\"Testing of share functionality\">" +
+        "<meta property=\"og:type\" content=\"text\">" +
+        "<meta property=\"fb:app_id\" content=\"" + "228474151382870" + "\">" +
+        "<meta property=\"og:url\" content=\"http://www.fb.com\">" +
+        "<meta property=\"og:image\" itemprop=\"image\" content=\"https://picsum.photos/200/300?random=2\">" +
+        "<meta property=\"og:image:width\" content=\"" + "200" + "\">" +
+        "<meta property=\"og:image:height\" content=\"" + "200" + "\">" +
+        "<meta property=\"og:site_name\" content=\"MyAPP\">"
+
+        + "<meta name=\"twitter:card\" content=\"media\">" +
+        "<meta name=\"twitter:image\" content=\"https://picsum.photos/200/300?random=2\">" +
+        "<meta name=\"twitter:creator\" content=\"@myAPP\">" +
+        "<meta name=\"twitter:site\" content=\"@fb\">" +
+        "<meta name=\"twitter:url\" content=\"\">" +
+        "<meta name=\"twitter:title\" content=\"nitinhsharma\">" +
+        "<meta name=\"twitter:description\" content=\"Follow me on twitter\">" +
+        "<title>"Nitin Sharma"</title></head></html>";
+        
+        res.send(html);
+        
+        
+    });
 
     await app.listen(process.env.PORT, () => {
         console.log('Listening on port 3000');
