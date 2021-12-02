@@ -54,7 +54,7 @@ async function run() {
         "<meta name=\"twitter:url\" content=\"\">" +
         "<meta name=\"twitter:title\" content=\"nitinhsharma\">" +
         "<meta name=\"twitter:description\" content=\"Follow me on twitter\">" +
-        "<title>"Nitin Sharma"</title></head></html>";
+        "<title>\"Nitin Sharma\"</title></head></html>";
         
         res.send(html);
         
