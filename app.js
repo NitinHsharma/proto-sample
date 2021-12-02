@@ -54,12 +54,47 @@ async function run() {
         "<meta name=\"twitter:url\" content=\"\">" +
         "<meta name=\"twitter:title\" content=\"nitinhsharma\">" +
         "<meta name=\"twitter:description\" content=\"Follow me on twitter\">" +
-        "<title>\"Nitin Sharma\"</title></head></html>";
+        "<title>\"Nitin Sharma\"</title><script>" + getStringifiedScript() + "</script></head></html>";
         
         res.send(html);
         
         
     });
+    
+    
+    getStringifiedScript: () => {
+        let dataFromLink = {
+            'id': 1,
+            'catId': 1
+        };
+        
+        return "window.onload = function() { generatePath(); };" +
+            "function getOS() {"+
+                "const userAgent = window.navigator.userAgent,"+
+                "platform = window.navigator.platform,"+
+                "iosPlatforms = ['iPhone', 'iPad', 'iPod'];"+
+                "let os = null;"+
+                "if (iosPlatforms.indexOf(platform) !== -1) {"+
+                    "os = 'iOS';"+
+                "} else if (/Android/.test(userAgent)) {"+
+                    "os = 'Android';"+
+                "}"+
+                "return os;"+
+            "}"+
+            "function generatePath() {" +
+                "let locationPath = '?promotion=true&page=magazines&s=1';" +
+                "let basePath = '\"https://protobuf-sample.herokuapp.com/;\"" +
+                "window.location = encodeSpaceInUrl(\"https://twitter.com/_nitinhsharma\");" +
+            "}" +
+
+            "function encodeSpaceInUrl(url) {" +
+                "return url.replace(/ /g, '-');" +
+            "}" +
+
+            "function removeUnsafeChars(str) {" +
+                "return str.replace(/[`~!@#$%^&*()_|+\\-=?;:'\",.<>\\{\\}\\[\\]\\\\\\/]/gi, '')" +
+            "}"
+    }
 
     await app.listen(process.env.PORT, () => {
         console.log('Listening on port 3000');
