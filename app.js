@@ -62,7 +62,7 @@ async function run() {
     });
     
     
-    getStringifiedScript: () => {
+    function getStringifiedScript() {
         let dataFromLink = {
             'id': 1,
             'catId': 1
